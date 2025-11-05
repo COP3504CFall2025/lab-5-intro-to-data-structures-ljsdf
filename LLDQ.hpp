@@ -7,21 +7,21 @@
 #include <utility>
 
 
-
-template <typename T>
+template<typename T>
 class LLDQ : public DequeInterface<T> {
-
     LinkedList<T> list;
 
 public:
     // Constructor
-    LLDQ() : list() {};
+    LLDQ() : list() {
+    };
 
     // Core Insertion Operations
-    void pushFront(const T& item) override {
+    void pushFront(const T &item) override {
         list.AddHead(item);
     };
-    void pushBack(const T& item) override {
+
+    void pushBack(const T &item) override {
         list.AddTail(item);
     };
 
@@ -34,22 +34,25 @@ public:
         list.RemoveHead();
         return item;
     };
-    T popBack() override {if (list.getCount() == 0) {
-        throw std::runtime_error("empty");
-    }
+
+    T popBack() override {
+        if (list.getCount() == 0) {
+            throw std::runtime_error("empty");
+        }
         T item{list.getTail()->data};
         list.RemoveTail();
         return item;
     };
 
     // Element Accessors
-    const T& front() const override {
+    const T &front() const override {
         if (list.getCount() == 0) {
             throw std::runtime_error("empty");
         }
         return list.getHead()->data;
     };
-    const T& back() const override {
+
+    const T &back() const override {
         if (list.getCount() == 0) {
             throw std::runtime_error("empty");
         }
