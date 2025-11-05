@@ -39,15 +39,15 @@ public:
 
     // Element Accessors
     const T& front() const override {
-        return list.GetHead()->data;
+        return list.getHead()->data;
     };
     const T& back() const override {
-        return list.GetTail()->data;
+        return list.getTail()->data;
     };
 
     // Getter
     std::size_t getSize() const noexcept override {
-        return list.GetCount();
+        return list.getCount();
     };
 };
 
