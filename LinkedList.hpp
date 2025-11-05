@@ -1,26 +1,56 @@
 #pragma once
 #include <iostream>
-using namespace std;
-
-
 
 template <typename T>
 class LinkedList {
+	struct Node {
+		T data;
+		Node* prev;
+		Node* next;
+	};
 public:
 	// Behaviors
-	void printForward() const;
-	void printReverse() const;
+	void printForward() const {
+		Node* index = head;
+		while (index != nullptr) {
+			std::cout << index->data << std::endl;
+			index = index->next;
+		}
+	};
+	void printReverse() const {
+		Node* index = tail;
+		while (index != nullptr) {
+			std::cout << index->data << std::endl;
+			index = index->prev;
+		}
+	};
 
 	// Accessors
-	[[nodiscard]] unsigned int getCount() const;
-	Node* getHead();
-	const Node* getHead() const;
-	Node* getTail();
-	const Node* getTail() const;
+	[[nodiscard]] unsigned int getCount() const {
+		return count;
+	};
+	Node* getHead() {
+		return head;
+	};
+	const Node* getHead() const {
+		return head;
+	};
+	Node* getTail() {
+		return tail;
+	};
+	const Node* getTail() const {
+		return tail;
+	};
 
 	// Insertion
-	void addHead(const T& data);
-	void addTail(const T& data);
+	void addHead(const T& data) {
+		head = new Node(data,nullptr,head);
+		count++;
+	};
+	void addTail(const T& data) {
+		tail = new Node(data,tail,nullptr);
+		count++;
+	};
 
 	// Removal
 	bool removeHead();
