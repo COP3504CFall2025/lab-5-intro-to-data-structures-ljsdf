@@ -127,11 +127,18 @@ public:
 
     // Deletion
     T popFront() override {
+        if (size_ == 0) { // <-- FIX (add check)
+            throw std::runtime_error("empty");
+        }
+        T item = data_[front_];
         front_ = (front_ + 1) % capacity_;
         size_--;
-        return data_[front_];
+        return item;
     };
     T popBack() override {
+        if (size_ == 0) { // <-- FIX (add check)
+            throw std::runtime_error("empty");
+        }
         back_ = (back_ + capacity_ - 1) % capacity_;
         size_--;
         return data_[back_];
@@ -139,10 +146,17 @@ public:
 
     // Access
     const T& front() const override {
+
+        if (size_ == 0) { // <-- FIX (add check)
+            throw std::runtime_error("empty");
+        }
         return data_[front_];
     };
     const T& back() const override {
-        return (back_ + capacity_ - 1) % capacity_;
+        if (size_ == 0) { // <-- FIX (add check)
+            throw std::runtime_error("empty");
+        }
+        return data_[(back_ + capacity_ - 1) % capacity_];
     };
 
     // Getters

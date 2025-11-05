@@ -11,7 +11,7 @@ class LinkedList {
 
 public:
 	// Behaviors
-	void printForward() const {
+	void PrintForward() const {
 		Node *index = head;
 		while (index != nullptr) {
 			std::cout << index->data << std::endl;
@@ -19,7 +19,7 @@ public:
 		}
 	};
 
-	void printReverse() const {
+	void PrintReverse() const {
 		Node *index = tail;
 		while (index != nullptr) {
 			std::cout << index->data << std::endl;
@@ -76,7 +76,7 @@ public:
 
 	// Removal
 	bool RemoveHead() {
-		if (head->next == nullptr) return false;
+		if (head == nullptr) return false;
 		Node *temp = head;
 		head = head->next;
 		if (head != nullptr) {
@@ -90,7 +90,7 @@ public:
 	};
 
 	bool RemoveTail() {
-		if (head->prev == nullptr) return false;
+		if (tail == nullptr) return false;
 		Node *temp = tail;
 		tail = tail->prev;
 		if (tail != nullptr) {
