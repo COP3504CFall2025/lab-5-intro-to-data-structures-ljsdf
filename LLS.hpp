@@ -20,13 +20,18 @@ public:
 
     // Deletion
     T pop() override{
-        T item{list.tail->data};
+        if (list.getCount() == 0) {
+            throw std::runtime_error("empty");
+        }
+        T item{list.getTail()->data};
         list.RemoveTail();
         return item;
     };
 
     // Access
-    T peek() const override {return list.tail->data;};
+    T peek() const override {if (list.getCount() == 0) {
+        throw std::runtime_error("empty");
+    }return list.getTail()->data;};
 
     //Getters
     std::size_t getSize() const noexcept override{

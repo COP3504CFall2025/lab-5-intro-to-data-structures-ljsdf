@@ -15,19 +15,25 @@ public:
 
     // Insertion
     void enqueue(const T& item) override {
-        list.AddHead(item);
+        list.AddTail(item);
     };
 
     // Deletion
     T dequeue() override {
-        T item{list.head->data};
+        if (list.getCount() == 0) {
+            throw std::runtime_error("empty");
+        }
+        T item{list.getHead()->data};
         list.RemoveHead();
         return item;
     };
 
     // Access
     T peek() const override{
-        return list.tail->data;
+        if (list.getCount() == 0) {
+            throw std::runtime_error("empty");
+        }
+        return list.getHead()->data;;
     };
 
     // Getter

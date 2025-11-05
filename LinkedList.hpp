@@ -10,14 +10,14 @@ class LinkedList {
 	};
 public:
 	// Behaviors
-	void PrintForward() const {
+	void printForward() const {
 		Node* index = head;
 		while (index != nullptr) {
 			std::cout << index->data << std::endl;
 			index = index->next;
 		}
 	};
-	void PrintReverse() const {
+	void printReverse() const {
 		Node* index = tail;
 		while (index != nullptr) {
 			std::cout << index->data << std::endl;
@@ -44,11 +44,26 @@ public:
 
 	// Insertion
 	void AddHead(const T& data) {
-		head = new Node(data,nullptr,head);
+		Node* newNode = new Node{data, nullptr, head};
+
+		if (head != nullptr) {
+			head->prev = newNode;
+		}
+		head = newNode;
+		if (tail == nullptr) {
+			tail = newNode;
+		}
 		count++;
 	};
 	void AddTail(const T& data) {
-		tail = new Node(data,tail,nullptr);
+		Node* newNode = new Node{data, tail, nullptr};
+		if (tail != nullptr) {
+			tail->next = newNode;
+		}
+		tail = newNode;
+		if (head == nullptr) {
+			head = newNode;
+		}
 		count++;
 	};
 
@@ -57,6 +72,11 @@ public:
 		if (head->next==nullptr) return false;
 		Node* temp = head;
 		head = head->next;
+		if (head != nullptr) {
+			head->prev = nullptr;
+		} else {
+			tail = nullptr;
+		}
 		delete temp;
 		count--;
 		return true;
@@ -65,6 +85,11 @@ public:
 		if (head->prev==nullptr) return false;
 		Node* temp = tail;
 		tail = tail->prev;
+		if (tail != nullptr) {
+			tail->next = nullptr;
+		} else {
+			head = nullptr;
+		}
 		delete temp;
 		count--;
 		return true;
