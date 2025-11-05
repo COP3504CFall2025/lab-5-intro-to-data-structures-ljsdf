@@ -115,7 +115,7 @@ public:
         if (size_ == 0) {
             throw std::runtime_error("empty");
         }
-        if (size_ > 0 && size_ == capacity_ / (scale_factor_ * 2)) {
+        if (size_ > 0 && size_ == capacity_ / (scale_factor_)) {
             size_t new_capacity = capacity_ / scale_factor_;
             if (new_capacity == 0) new_capacity = 1;
             T *new_data = new T[new_capacity];
