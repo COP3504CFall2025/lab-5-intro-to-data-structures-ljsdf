@@ -104,7 +104,7 @@ public:
 
     // Access
     T peek() const override {
-        if (size_ == 0) throw std::runtime_error("empty");
+        if (size_ == 0) throw std::runtime_error("empty"); //  there was some gradescope warning, idk how to fix
 
         return data_[0];
     };
