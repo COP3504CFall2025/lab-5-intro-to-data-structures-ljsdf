@@ -98,14 +98,14 @@ public:
     };
 
     T peek() const override {
-        if (list.getCount() == 0) {
+        if (size_ == 0) {
             throw std::runtime_error("empty");
         }
         return data_[size_ - 1];
     };
 
     T pop() override {
-        if (list.getCount() == 0) {
+        if (size_== 0) {
             throw std::runtime_error("empty");
         }
         size_--;

@@ -104,7 +104,7 @@ public:
 
     // Access
     T peek() const override {
-        if (list.getCount() == 0) {
+        if (size_== 0) {
             throw std::runtime_error("empty");
         }
         return data_[0];
@@ -113,7 +113,7 @@ public:
     // Deletion
     T dequeue() override {
         // doing it backwards
-        if (list.getCount() == 0) {
+        if (size_== 0) {
             throw std::runtime_error("empty");
         }
         T item = data_[0];
