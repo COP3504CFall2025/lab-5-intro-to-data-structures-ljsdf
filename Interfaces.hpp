@@ -7,7 +7,7 @@
 template<typename T>
 class StackInterface {
 public:
-    virtual ~StackInterface() = 0;
+    virtual ~StackInterface() = default;
     [[nodiscard]] virtual std::size_t getSize() const noexcept = 0;
     virtual void push(const T &data) = 0;
     virtual T peek() const = 0;
@@ -18,7 +18,7 @@ public:
 template<typename T>
 class QueueInterface {
 public:
-    virtual ~QueueInterface() = 0;
+    virtual ~QueueInterface() = default;
     [[nodiscard]] virtual std::size_t getSize() const noexcept = 0;
     virtual void enqueue(const T& data)=0;
     virtual T peek() const=0;
@@ -29,7 +29,7 @@ public:
 template<typename T>
 class DequeInterface {
 public:
-    virtual ~DequeInterface() = 0;
+    virtual ~DequeInterface() = default;
     virtual void pushFront(const T& item) = 0;
     virtual void pushBack(const T& item) = 0;
     virtual T popFront() = 0;
