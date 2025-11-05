@@ -20,9 +20,8 @@ public:
 
     // Deletion
     T dequeue() override {
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         T item{list.getHead()->data};
         list.RemoveHead();
         return item;
@@ -30,9 +29,8 @@ public:
 
     // Access
     T peek() const override{
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         return list.getHead()->data;;
     };
 

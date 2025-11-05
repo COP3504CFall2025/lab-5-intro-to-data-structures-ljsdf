@@ -27,18 +27,16 @@ public:
 
     // Core Removal Operations
     T popFront() override {
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         T item{list.getHead()->data};
         list.RemoveHead();
         return item;
     };
 
     T popBack() override {
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         T item{list.getTail()->data};
         list.RemoveTail();
         return item;
@@ -46,16 +44,14 @@ public:
 
     // Element Accessors
     const T &front() const override {
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         return list.getHead()->data;
     };
 
     const T &back() const override {
-        if (list.getCount() == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (list.getCount() == 0) throw std::runtime_error("empty");
+
         return list.getTail()->data;
     };
 
@@ -64,9 +60,3 @@ public:
         return list.getCount();
     };
 };
-
-
-
-
-
-

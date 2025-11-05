@@ -104,16 +104,15 @@ public:
 
     // Access
     T peek() const override {
-        if (size_== 0) {
-            throw std::runtime_error("empty");
-        }
+        if (size_ == 0) throw std::runtime_error("empty");
+
         return data_[0];
     };
 
     // Deletion
     T dequeue() override {
         // doing it backwards
-        if (size_== 0) {
+        if (size_ == 0) {
             throw std::runtime_error("empty");
         }
         if (size_ > 0 && size_ == capacity_ / (scale_factor_ * 2)) {

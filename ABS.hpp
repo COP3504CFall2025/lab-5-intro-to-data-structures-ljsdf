@@ -98,16 +98,14 @@ public:
     };
 
     T peek() const override {
-        if (size_ == 0) {
-            throw std::runtime_error("empty");
-        }
+        if (size_ == 0) throw std::runtime_error("empty");
+        
         return data_[size_ - 1];
     };
 
     T pop() override {
-        if (size_== 0) {
-            throw std::runtime_error("empty");
-        }
+        if (size_ == 0) throw std::runtime_error("empty");
+        
         if (size_ > 0 && size_ == capacity_ / (scale_factor_ * 2)) {
             size_t new_capacity = capacity_ / scale_factor_;
             if (new_capacity == 0) new_capacity = 1;
