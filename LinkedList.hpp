@@ -18,6 +18,13 @@ public:
 			index = index->next;
 		}
 	};
+	void printForward() const {
+		Node *index = head;
+		while (index != nullptr) {
+			std::cout << index->data << std::endl;
+			index = index->next;
+		}
+	};
 
 	void PrintReverse() const {
 		Node *index = tail;
