@@ -15,13 +15,13 @@ public:
 
     // Insertion
     void enqueue(const T& item) override {
-        list.addHead(item);
+        list.AddHead(item);
     };
 
     // Deletion
     T dequeue() override {
         T item{list.head->data};
-        list.removeHead();
+        list.RemoveHead();
         return item;
     };
 
@@ -32,7 +32,7 @@ public:
 
     // Getter
     std::size_t getSize() const noexcept override{
-        return list.getCount();
+        return list.GetCount();
     };
 
 };

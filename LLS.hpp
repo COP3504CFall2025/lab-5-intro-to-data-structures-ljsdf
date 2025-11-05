@@ -15,13 +15,13 @@ public:
 
     // Insertion
     void push(const T& item) override {
-        list.addTail(item);
+        list.AddTail(item);
     };
 
     // Deletion
     T pop() override{
         T item{list.tail->data};
-        list.removeTail();
+        list.RemoveTail();
         return item;
     };
 
@@ -30,6 +30,6 @@ public:
 
     //Getters
     std::size_t getSize() const noexcept override{
-        return list.getCount();
+        return list.GetCount();
     };
 };

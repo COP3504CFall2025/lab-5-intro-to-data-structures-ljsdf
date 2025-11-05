@@ -19,35 +19,35 @@ public:
 
     // Core Insertion Operations
     void pushFront(const T& item) override {
-        list.addHead(item);
+        list.AddHead(item);
     };
     void pushBack(const T& item) override {
-        list.addTail(item);
+        list.AddTail(item);
     };
 
     // Core Removal Operations
     T popFront() override {
         T item{list.head->data};
-        list.removeHead();
+        list.RemoveHead();
         return item;
     };
     T popBack() override {
         T item{list.tail->data};
-        list.removeTail();
+        list.RemoveTail();
         return item;
     };
 
     // Element Accessors
     const T& front() const override {
-        return list.tail->data;
+        return list.GetHead()->data;
     };
     const T& back() const override {
-        return list.tail->data;
+        return list.GetTail()->data;
     };
 
     // Getter
     std::size_t getSize() const noexcept override {
-        return list.getCount();
+        return list.GetCount();
     };
 };
 
