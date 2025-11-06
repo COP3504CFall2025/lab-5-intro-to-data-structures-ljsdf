@@ -156,7 +156,7 @@ public:
 
     // Getters
     std::size_t getSize() const noexcept override {
-        return size_;
+        return 0;// fail on purpose to see error
     };
 
 };
